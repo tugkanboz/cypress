@@ -1,0 +1,13 @@
+{
+  "name": "ciceksepeti-tests",
+  "description": "Cypress e2e tests for ciceksepeti web app",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "author": "Tugkan Boz",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.3.0"
+  }
+}
