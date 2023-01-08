@@ -1,0 +1,15 @@
+├── cypress
+│   ├── e2e
+│   │   ├── home
+│   │   │   ├── home.cy.js
+│   │   │   ├── home.cy.js
+│   ├── fixtures
+│   │   ├── user.json
+│   │   ├── error.json
+│   ├── support
+│   │   ├── commands.js
+│   │   ├── e2e.js
+│   ├── pages
+│   │   ├── page.js
+│   │   ├── home.page.js
+│   │   ├── login.page.js
