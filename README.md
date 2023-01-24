@@ -24,17 +24,17 @@ An automation test suite for an e-commerce website has been written using Cypres
 ## Setup
 To run this project locally, follow these steps:
 
-## Clone the repository:
+## Clone the repository
 ```
 git clone https://github.com/tugkanboz/cypress-demo.git
 ```
 
-## Install the dependencies:
+## Install the dependencies
 ```
 npm install
 ```
 
-## Start the project:
+## Start the project
 ```
 npx cypress open 
 ```
