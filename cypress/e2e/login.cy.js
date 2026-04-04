@@ -1,21 +1,23 @@
-import LoginPage from '../pages/login.page'
-import user from '../fixtures/user.json'
-import error from '../fixtures/error.json'
+import LoginPage from '../support/pages/LoginPage'
 
 describe('Login', () => {
   beforeEach(() => {
     LoginPage.open()
   })
 
-  it('With existing credentials', () => {
-    LoginPage.logIn(user.username, user.password)
-    cy.location('pathname')
-      .should('include', 'uye-girisi')
+  it('should stay on login page with existing credentials', () => {
+    cy.fixture('user').then((user) => {
+      LoginPage.login(user.username, user.password)
+      cy.location('pathname').should('include', 'uye-girisi')
+    })
   })
 
-  it('With wrong credentials', () => {
-    LoginPage.logIn('foo@test.com', 'bar')
-    LoginPage.containerError
-      .should('have.text', error.credentials)
+  it('should show error message with wrong credentials', () => {
+    cy.fixture('wrongUser').then((wrongUser) => {
+      LoginPage.login(wrongUser.username, wrongUser.password)
+    })
+    cy.fixture('error').then((error) => {
+      LoginPage.verifyErrorMessage(error.credentials)
+    })
   })
 })

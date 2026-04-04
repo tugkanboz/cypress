@@ -3,11 +3,12 @@
   "description": "Cypress e2e tests for ciceksepeti web app",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:run:headed": "cypress run --headed"
   },
   "author": "Tugkan Boz",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^12.3.0"
+  "devDependencies": {
+    "cypress": "^13.17.0"
   }
 }

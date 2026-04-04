@@ -1,17 +1,17 @@
-import HomePage from '../pages/home.page'
+import HomePage from '../support/pages/HomePage'
 
 describe('Homepage', () => {
   beforeEach(() => {
     HomePage.open()
   })
 
-  it('Check homepage flower item', () => {
-    HomePage.itemCs.click();
-    HomePage.itemFlowerAndGift.contains('Çiçek & Hediye')
+  it('should display flower & gift category when clicking CS item', () => {
+    HomePage.clickItemCs()
+    HomePage.verifyCategoryText('Çiçek & Hediye')
   })
 
-  it('Check homepage extra item', () => {
-    HomePage.itemExtra.click();
-    HomePage.itemFlowerAndGift.contains('Milyonlarca Ürün')
-  })  
+  it('should display millions of products when clicking extra item', () => {
+    HomePage.clickItemExtra()
+    HomePage.verifyCategoryText('Milyonlarca Ürün')
+  })
 })
