@@ -1,6 +1,6 @@
 class BasePage {
-  open(path) {
-    return cy.visit(path, { failOnStatusCode: false })
+  open(path, options = {}) {
+    return cy.visit(path, options)
   }
 
   getElement(selector, options = {}) {

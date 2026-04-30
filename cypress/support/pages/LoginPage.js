@@ -18,6 +18,21 @@ class LoginPage extends BasePage {
     return this.clickElement(SELECTORS.buttonLogIn)
   }
 
+  loginAs(user, { cacheSession = true } = {}) {
+    const setup = () => {
+      this.open()
+      this.login(user.username, user.password)
+      cy.location('pathname').should('not.include', 'uye-girisi')
+    }
+    if (!cacheSession) {
+      return setup()
+    }
+    return cy.session(['login', user.username], setup, {
+      validate: () => cy.getCookies().should('not.be.empty'),
+      cacheAcrossSpecs: true,
+    })
+  }
+
   getErrorContainer() {
     return this.getElement(SELECTORS.containerError)
   }
