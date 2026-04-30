@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Cypress runtime artefacts and per-environment secrets
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+cypress.env.json
