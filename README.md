@@ -1,40 +1,66 @@
-# Cypress-demo
-An automation test suite for an e-commerce website has been written using Cypress version 12 and following the Page Object Model (POM) design pattern.
+# cypress-demo
 
-## Folder-Structure
+End-to-end test suite for the [ciceksepeti.com](https://www.ciceksepeti.com/) e-commerce site, written with [Cypress](https://www.cypress.io/) 13 and the Page Object Model.
+
+## Requirements
+
+- Node.js 18+
+- npm 9+
+
+## Folder structure
 
 ```
+.
 ├── cypress
 │   ├── e2e
-│   │   ├── home
-│   │   │   ├── home.cy.js
-│   │   │   ├── home.cy.js
+│   │   ├── home.cy.js
+│   │   └── login.cy.js
 │   ├── fixtures
-│   │   ├── user.json
 │   │   ├── error.json
-│   ├── support
-│   │   ├── commands.js
-│   │   ├── e2e.js
-│   ├── pages
-│   │   ├── page.js
-│   │   ├── home.page.js
-│   │   ├── login.page.js
+│   │   ├── user.json
+│   │   └── wrongUser.json
+│   └── support
+│       ├── commands.js
+│       ├── e2e.js
+│       └── pages
+│           ├── BasePage.js
+│           ├── HomePage.js
+│           └── LoginPage.js
+├── cypress.config.js
+├── jsconfig.json
+└── package.json
 ```
 
 ## Setup
-To run this project locally, follow these steps:
 
-## Clone the repository
-```
-git clone https://github.com/tugkanboz/cypress-demo.git
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/tugkanboz/cypress-demo.git
+   cd cypress-demo
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Install the dependencies
-```
-npm install
-```
+## Running tests
 
-## Start the project
-```
-npx cypress open 
-```
+| Command                | Description                              |
+| ---------------------- | ---------------------------------------- |
+| `npm run cy:open`      | Open the Cypress interactive runner      |
+| `npm run cy:run`       | Run all specs headlessly                 |
+| `npm run cy:run:headed`| Run all specs in a visible browser       |
+
+## Configuration
+
+Key settings live in [`cypress.config.js`](./cypress.config.js):
+
+- `baseUrl`: `https://www.ciceksepeti.com/`
+- Viewport: `1920x1080`
+- `defaultCommandTimeout`: `10000` ms
+- `pageLoadTimeout`: `30000` ms
+- `retries`: `2` in run mode, `0` in open mode
+
+## License
+
+[ISC](./LICENSE)
