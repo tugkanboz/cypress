@@ -12,10 +12,18 @@ class LoginPage extends BasePage {
     return super.open('/uye-girisi')
   }
 
+  fillCredentials(username, password) {
+    cy.get(SELECTORS.inputUsername).clear().type(username)
+    cy.get(SELECTORS.inputPassword).clear().type(password, { log: false })
+  }
+
+  submit() {
+    return cy.get(SELECTORS.buttonLogIn).click()
+  }
+
   login(username, password) {
-    this.typeText(SELECTORS.inputUsername, username)
-    this.typeText(SELECTORS.inputPassword, password)
-    return this.clickElement(SELECTORS.buttonLogIn)
+    this.fillCredentials(username, password)
+    return this.submit()
   }
 
   loginAs(user, { cacheSession = true } = {}) {
@@ -34,11 +42,11 @@ class LoginPage extends BasePage {
   }
 
   getErrorContainer() {
-    return this.getElement(SELECTORS.containerError)
+    return cy.get(SELECTORS.containerError)
   }
 
   verifyErrorMessage(expectedMessage) {
-    return this.shouldContainText(SELECTORS.containerError, expectedMessage)
+    return cy.get(SELECTORS.containerError).should('contain.text', expectedMessage)
   }
 }
 

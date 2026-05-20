@@ -12,19 +12,19 @@ class HomePage extends BasePage {
   }
 
   clickItemCs() {
-    return this.clickElement(SELECTORS.itemCs)
+    return cy.get(SELECTORS.itemCs).click()
   }
 
   clickItemExtra() {
-    return this.clickElement(SELECTORS.itemExtra)
+    return cy.get(SELECTORS.itemExtra).click()
   }
 
   getActiveCategory() {
-    return this.getElement(SELECTORS.activeCategory)
+    return cy.get(SELECTORS.activeCategory)
   }
 
   verifyCategoryText(expectedText) {
-    return this.shouldContainText(SELECTORS.activeCategory, expectedText)
+    return cy.get(SELECTORS.activeCategory).should('contain.text', expectedText)
   }
 }
 
