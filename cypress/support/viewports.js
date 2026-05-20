@@ -7,9 +7,7 @@ export const VIEWPORTS = {
 Cypress.Commands.add('useViewport', (name) => {
   const preset = VIEWPORTS[name]
   if (!preset) {
-    throw new Error(
-      `Unknown viewport "${name}". Available: ${Object.keys(VIEWPORTS).join(', ')}`,
-    )
+    throw new Error(`Unknown viewport "${name}". Available: ${Object.keys(VIEWPORTS).join(', ')}`)
   }
   return cy.viewport(preset.width, preset.height)
 })

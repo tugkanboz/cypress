@@ -13,8 +13,10 @@ class LoginPage extends BasePage {
   }
 
   fillCredentials(username, password) {
-    cy.get(SELECTORS.inputUsername).clear().type(username)
-    cy.get(SELECTORS.inputPassword).clear().type(password, { log: false })
+    cy.get(SELECTORS.inputUsername).clear()
+    cy.get(SELECTORS.inputUsername).type(username)
+    cy.get(SELECTORS.inputPassword).clear()
+    cy.get(SELECTORS.inputPassword).type(password, { log: false })
   }
 
   submit() {
