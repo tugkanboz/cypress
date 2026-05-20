@@ -1,4 +1,5 @@
 import './commands'
+import './viewports'
 
 const IGNORED_SITE_ERRORS = [
   /ResizeObserver loop limit exceeded/,
