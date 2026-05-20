@@ -1,0 +1,31 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2022": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended", "plugin:cypress/recommended", "prettier"],
+  "plugins": ["cypress"],
+  "rules": {
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-console": "warn",
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "error",
+    "cypress/no-force": "warn",
+    "cypress/no-async-tests": "error"
+  },
+  "overrides": [
+    {
+      "files": ["cypress/**/*.cy.js"],
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}
